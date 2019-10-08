@@ -2,7 +2,7 @@
 - name: Add inventory hosts to Ansible Tower survey
   hosts: all
   gather_facts: no
-  vars_files
+  vars_files:
     - ./credentials/tower_credentials.yml
 
   tasks:
