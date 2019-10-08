@@ -5,7 +5,6 @@
         "question_name": "Which device do you wish to target?",
         "min": null,
         "max": null,
-        "default": "rtr1",
         "required": true,
         "choices": "{% for host in groups['all'] %}{{ hostvars[host]['inventory_hostname'] }}\n{% endfor %}",
         "variable": "network_target",
