@@ -1,0 +1,17 @@
+{
+  "name": "System Survey",
+  "description": "Prompt for system properties such as hostname",
+  "spec": [
+    {
+        "question_description": "Which device do you wish to target?",
+        "min": null,
+        "max": null,
+        "required": false,
+        "choices": "operator\nread-only\nsuper-user\nunauthorized",
+        "choices": "rtr2\nrtr2\nrtr2\nrtr2\n",
+        "variable": "network_juniper_class",
+        "question_name": "Which login class? (Juniper only)",
+        "type": "multiplechoice"
+    }
+  ]
+}
