@@ -34,3 +34,5 @@
         tower_password: "{{ TOWER_PASSWORD }}"
         tower_host: https://tower.michaelanthonyford.com
         validate_certs: no
+    delegate_to: localhost
+    run_once: yes
