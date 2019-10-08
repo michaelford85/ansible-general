@@ -24,9 +24,9 @@
     tower_job_template:
         name: "CONFIGURE PORT"
         job_type: "run"
-        inventory: "Workshop Inventory"
+        inventory: "Demo Inventory"
         project: "Ansible General Demo Exercises"
-        playbook: "build_survey"
+        playbook: "build_survey.yml"
         credential: "Demo Credential"
         survey_enabled: true
         survey_spec: "{{ lookup('template', '{{playbook_dir}}/survey.json') }}"
