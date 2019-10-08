@@ -7,7 +7,7 @@
         "max": null,
         "default": "rtr1",
         "required": true,
-        "choices": "rtr3\nrtr3\nrtr3\nrtr3\n",
+        "choices": "{% for host in groups['all'] %}{{ inventory_hostname }}\n{% endfor %}",
         "variable": "network_target",
         "type": "multiplechoice"
     }

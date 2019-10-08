@@ -1,13 +1,13 @@
 {
-  "name": "System Survey",
-  "description": "Prompt for system properties such as hostname",
+  "description": "",
   "spec": [
     {
         "question_name": "Which device do you wish to target?",
         "min": null,
         "max": null,
-        "required": false,
-        "choices": "{% for host in groups['all'] %}{{ inventory_hostname }}\n{% endfor %}",
+        "default": "rtr1",
+        "required": true,
+        "choices": "rtr1\nrtr2\nrtr3\nrtr4",
         "variable": "network_target",
         "type": "multiplechoice"
     }
