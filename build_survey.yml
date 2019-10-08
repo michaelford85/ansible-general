@@ -33,3 +33,4 @@
         tower_username: "{{ TOWER_USERNAME }}"
         tower_password: "{{ TOWER_PASSWORD }}"
         tower_host: https://tower.michaelanthonyford.com
+        validate_certs: no
