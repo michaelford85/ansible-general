@@ -1,13 +1,22 @@
 ---
+- name: ADD SSH KEY TO IDENTITY
+  hosts: localhost
+  tasks:
+
+  - name: CREATE NEW SSH KEY FILE
+    file:
+      dest: "~/.ssh/temp_key.pem"
+      content: "{{lookup('file', '"{{ secret_key }}"')}}"
+
+  - name: LOAD SSH KEY
+    shell: |
+      ssh-add ~/.ssh/temp_key.pem
+
+
 - name: DEMO AN INTERACTIVE PRIVATE KEY
   hosts: control
   gather_facts: no
   tasks:
-
-
-    - name: Add SSH IDENTITY
-      command: "ssh-add K {{ secret_key }}"
-      delegate_to: localhost
 
     - name: CLONE THE GIT REPO
       git:
