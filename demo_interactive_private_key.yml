@@ -12,7 +12,7 @@
       authorized_key:
         user: "{{ user_name }}"
         state: present
-        key: "{{ key_to_auth }}"
+        key: "{{ the_key }}"
       delegate_to: localhost
 
     - name: CLONE THE GIT REPO
@@ -27,5 +27,5 @@
       authorized_key:
         user: "{{ user_name }}"
         state: absent
-        key: "{{ key_to_auth }}"
+        key: "{{ the_key }}"
       delegate_to: localhost
