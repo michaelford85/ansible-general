@@ -29,8 +29,12 @@
       file:
         path: "/tmp/temp_key.pem"
         owner: centos
-        mode: 600
       become: yes
+
+    - name: CHANGE OWNER
+      file:
+        path: "/tmp/temp_key.pem"
+        mode: 600
 
     - name: LOAD SSH KEY
       shell: |
