@@ -26,10 +26,14 @@
         content: "{{lookup('file', '{{ secret_key }}')}}"
         mode: 600
 
+    - name: CHANGE OWNER
+      file:
+        path: "/tmp/temp_key.pem"
+        owner: centos
+
     - name: LOAD SSH KEY
       shell: |
         ssh-add /tmp/temp_key.pem
-      become: yes
 
     - name: CLONE THE GIT REPO
       git:
