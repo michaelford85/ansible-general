@@ -12,7 +12,7 @@
       authorized_key:
         user: "{{ user_name }}"
         state: present
-        key: "{{ secret_key }}"
+        key: "{{ lookup('file', '{{ secret_key }}') }}"
       delegate_to: localhost
 
     - name: CLONE THE GIT REPO
@@ -27,5 +27,5 @@
       authorized_key:
         user: "{{ user_name }}"
         state: absent
-        key: "{{ secret_key }}"
+        key: "{{ lookup('file', '{{ secret_key }}') }}"
       delegate_to: localhost
