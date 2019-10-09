@@ -8,6 +8,7 @@
     copy:
       dest: "/tmp/temp_key.pem"
       content: "{{lookup('file', '{{ secret_key }}')}}"
+      mode: 600
 
   - name: LOAD SSH KEY
     shell: |
