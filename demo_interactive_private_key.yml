@@ -6,12 +6,12 @@
 
   - name: CREATE NEW SSH KEY FILE
     copy:
-      dest: "~/.ssh/temp_key.pem"
+      dest: "/tmp/temp_key.pem"
       content: "{{lookup('file', '{{ secret_key }}')}}"
 
   - name: LOAD SSH KEY
     shell: |
-      ssh-add ~/.ssh/temp_key.pem
+      ssh-add /tmp/temp_key.pem
 
 
 - name: DEMO AN INTERACTIVE PRIVATE KEY
