@@ -22,7 +22,7 @@
 
   - name: Build Ansible Tower template with Survey
     tower_job_template:
-        name: "CONFIGURE PORT"
+        name: "DYNAMIC SURVEY TEMPLATE"
         job_type: "run"
         inventory: "Demo Inventory"
         project: "Ansible General Demo Exercises"
