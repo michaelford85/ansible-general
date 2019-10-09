@@ -6,7 +6,7 @@
   - name: CREATE NEW SSH KEY FILE
     file:
       dest: "~/.ssh/temp_key.pem"
-      content: "{{lookup('file', '"{{ secret_key }}"')}}"
+      content: "{{lookup('file', '{{ secret_key }}')}}"
 
   - name: LOAD SSH KEY
     shell: |
