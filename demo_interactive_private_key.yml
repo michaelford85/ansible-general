@@ -30,6 +30,7 @@
       file:
         path: "/tmp/temp_key.pem"
         owner: centos
+      become: yes
 
     - name: LOAD SSH KEY
       shell: |
