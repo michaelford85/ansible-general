@@ -5,6 +5,11 @@
   become: yes
   tasks:
 
+
+    - name: Add SSH IDENTITY
+      command: ssh-add K "{{ secret_key }}"
+      delegate_to: localhost
+
     - name: CLONE THE GIT REPO
       git:
         repo: git@github.com:michaelford85/ansible-aci.git
