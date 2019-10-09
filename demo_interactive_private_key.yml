@@ -8,10 +8,24 @@
       debug:
         var: secret_key
 
+    - name: Set authorized key taken from file
+      authorized_key:
+        user: "{{ user_name }}"
+        state: present
+        key: "{{ secret_key }}"
+      delegate_to: localhost
+
     - name: CLONE THE GIT REPO
       git:
         repo: "git@github.com:michaelford85/ansible-aci.git"
         dest: "/tmp/my_test_repo"
         key_file: "{{ secret_key  }}"
         accept_hostkey: yes
+      delegate_to: localhost
+
+    - name: Remove authorized key taken from file
+      authorized_key:
+        user: "{{ user_name }}"
+        state: absent
+        key: "{{ secret_key }}"
       delegate_to: localhost
