@@ -6,7 +6,7 @@
 
 
     - name: Add SSH IDENTITY
-      command: ssh-add K "{{ secret_key }}"
+      command: "ssh-add K {{ secret_key }}"
       delegate_to: localhost
 
     - name: CLONE THE GIT REPO
