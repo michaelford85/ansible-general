@@ -5,14 +5,14 @@
   tasks:
 
     - name: DISPLAY THE INJECTED EXTRA VAR
-      debug:
-        msg: "{{ lookup('file', '{{ secret_key }}') }}"
+      set_fact:
+        key_to_auth: "{{ lookup('file', '{{ secret_key }}') }}"
 
     - name: Set authorized key taken from file
       authorized_key:
         user: "{{ user_name }}"
         state: present
-        key: "{{ lookup('file', '{{ secret_key }}') }}"
+        key: "{{ key_to_auth }}"
       delegate_to: localhost
 
     - name: CLONE THE GIT REPO
@@ -27,5 +27,5 @@
       authorized_key:
         user: "{{ user_name }}"
         state: absent
-        key: "{{ lookup('file', '{{ secret_key }}') }}"
+        key: "{{ key_to_auth }}"
       delegate_to: localhost
