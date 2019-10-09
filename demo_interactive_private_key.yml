@@ -2,7 +2,6 @@
 - name: DEMO AN INTERACTIVE PRIVATE KEY
   hosts: control
   gather_facts: no
-  become: yes
   tasks:
 
 
