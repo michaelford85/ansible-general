@@ -24,12 +24,12 @@
       copy:
         dest: "/tmp/temp_key.pem"
         content: "{{lookup('file', '{{ secret_key }}')}}"
-        mode: 600
 
     - name: CHANGE OWNER
       file:
         path: "/tmp/temp_key.pem"
         owner: centos
+        mode: 600
       become: yes
 
     - name: LOAD SSH KEY
