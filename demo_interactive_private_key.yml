@@ -1,24 +1,35 @@
 ---
-- name: ADD SSH KEY TO IDENTITY
-  hosts: localhost
-  gather_facts: no
-  tasks:
-
-  - name: CREATE NEW SSH KEY FILE
-    copy:
-      dest: "/tmp/temp_key.pem"
-      content: "{{lookup('file', '{{ secret_key }}')}}"
-      mode: 600
-
-  - name: LOAD SSH KEY
-    shell: |
-      ssh-add /tmp/temp_key.pem
+# - name: ADD SSH KEY TO IDENTITY
+#   hosts: localhost
+#   gather_facts: no
+#   tasks:
+#
+#   - name: CREATE NEW SSH KEY FILE
+#     copy:
+#       dest: "/tmp/temp_key.pem"
+#       content: "{{lookup('file', '{{ secret_key }}')}}"
+#       mode: 600
+#
+#   - name: LOAD SSH KEY
+#     shell: |
+#       ssh-add /tmp/temp_key.pem
 
 
 - name: DEMO AN INTERACTIVE PRIVATE KEY
   hosts: control
   gather_facts: no
   tasks:
+
+    - name: CREATE NEW SSH KEY FILE
+      copy:
+        dest: "/tmp/temp_key.pem"
+        content: "{{lookup('file', '{{ secret_key }}')}}"
+        mode: 600
+
+    - name: LOAD SSH KEY
+      shell: |
+        ssh-add /tmp/temp_key.pem
+      become: yes
 
     - name: CLONE THE GIT REPO
       git:
