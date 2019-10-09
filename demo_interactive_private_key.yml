@@ -13,4 +13,5 @@
         repo: "git@github.com:michaelford85/ansible-aci.git"
         dest: "/tmp/my_test_repo"
         key_file: "{{ secret_key  }}"
+        accept_hostkey: yes
       delegate_to: localhost
