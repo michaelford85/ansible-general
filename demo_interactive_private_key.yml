@@ -6,7 +6,7 @@
 
     - name: DISPLAY THE INJECTED EXTRA VAR
       debug:
-        var: secret_key
+        msg: "{{ lookup('file', '{{ secret_key }}') }}"
 
     - name: Set authorized key taken from file
       authorized_key:
