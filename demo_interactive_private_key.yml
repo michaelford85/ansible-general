@@ -1,10 +1,11 @@
 ---
 - name: ADD SSH KEY TO IDENTITY
   hosts: localhost
+  gather_facts: no
   tasks:
 
   - name: CREATE NEW SSH KEY FILE
-    file:
+    copy:
       dest: "~/.ssh/temp_key.pem"
       content: "{{lookup('file', '{{ secret_key }}')}}"
 
