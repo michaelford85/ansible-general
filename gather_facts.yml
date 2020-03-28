@@ -1,5 +1,5 @@
 - name: Gather Facts
-  hosts: webservers
+  hosts: "{{ host }}"
   gather_facts: no
   tasks:
 
