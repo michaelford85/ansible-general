@@ -1,0 +1,7 @@
+- name: Gather Facts
+  hosts: webservers
+  gather_facts: no
+  tasks:
+
+    - name: Gather Facts
+      setup:
