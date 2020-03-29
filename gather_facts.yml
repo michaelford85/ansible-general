@@ -25,7 +25,7 @@
       lineinfile:
         dest: /etc/sudoers
         regexp: '^{{ username }}'
-        line: '{{ username }} ALL=(ALL)'
+        line: '{{ username }} ALL=(ALL) PASSWD: ALL'
         state: present
         validate: visudo -cf %s
         backup: false
