@@ -1,8 +1,12 @@
 - name: Gather Facts
   hosts: all
-  gather_facts: no
+  gather_facts: yes
   tasks:
 
     - name: Print RHEL Node hostnames
+      setup:
+      register: facts_output
+
+    - name: Print facts_output
       debug:
-        var: hostvars['inventory_hostname']['ec2_tag_short_name']
+        var: facts_output
