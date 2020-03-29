@@ -5,4 +5,4 @@
 
     - name: Print RHEL Node hostnames
       debug:
-        var: hostvars['ec2_tag_short_name']
+        var: hostvars['inventory_hostname']['ec2_tag_short_name']
