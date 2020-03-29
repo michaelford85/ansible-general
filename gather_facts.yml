@@ -1,4 +1,4 @@
-- name: Gather Facts
+- name: Add Linux User
   hosts: all
   gather_facts: yes
   tasks:
@@ -10,3 +10,14 @@
     - name: Print facts_output
       debug:
         var: facts_output.ansible_facts.ansible_hostname
+
+    - name: Create User Account
+      # user:
+      #   createhome: true
+      #   name: "{{ username }}"
+      #   shell: /bin/bash
+      #   state: present
+      #   password: "{{ password }}
+      debug:
+        msg: "This is a managed node named {{ facts_output.ansible_facts.ansible_hostname }}."
+      when: facts_output.ansible_facts.ansible_hostname is search("node")
