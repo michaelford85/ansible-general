@@ -9,4 +9,4 @@
 
     - name: Print facts_output
       debug:
-        var: facts_output.ansible_hostname
+        var: facts_output.ansible_facts.ansible_hostname
