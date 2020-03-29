@@ -5,4 +5,4 @@
 
     - name: Print RHEL Node hostnames
       debug:
-        var: ansible_facts
+        var: hostvars['ec2_tag_short_name']
