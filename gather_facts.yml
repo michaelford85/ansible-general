@@ -17,7 +17,7 @@
         name: "{{ username }}"
         shell: /bin/bash
         state: present
-        password: "{{ password }}
-      # debug:
-      #   msg: "This is a managed node named {{ facts_output.ansible_facts.ansible_hostname }}."
+        password: "{{ password }}"
+       # debug:
+       #   msg: "This is a managed node named {{ facts_output.ansible_facts.ansible_hostname }}."
       when: facts_output.ansible_facts.ansible_hostname is search("node")
