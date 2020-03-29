@@ -30,6 +30,7 @@
         validate: visudo -cf %s
         backup: false
       notify: restart ssh
+      become: yes
 
   handlers:
 
