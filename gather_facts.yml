@@ -1,7 +1,8 @@
 - name: Gather Facts
-  hosts: webservers
+  hosts: all
   gather_facts: no
   tasks:
 
-    - name: Gather Facts
-      setup:
+    - name: Print RHEL Node hostnames
+      debug:
+        msg: "RHEL Node is {{ ansible_facts.ec2_tag_short_name}}"
