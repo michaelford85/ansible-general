@@ -22,7 +22,7 @@
       when: facts_output.ansible_facts.ansible_hostname is search("node")
       become: yes
 
-    - name: Configure sshd and sudoers
+    - name: Configure sudoers with newly created user
       lineinfile:
         dest: /etc/sudoers
         regexp: '^{{ username }}'
@@ -31,6 +31,7 @@
         validate: visudo -cf %s
         backup: false
       notify: restart ssh
+      when: facts_output.ansible_facts.ansible_hostname is search("node")
       become: yes
 
   handlers:
