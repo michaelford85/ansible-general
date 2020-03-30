@@ -1,3 +1,4 @@
+#NOTE: This Playbook assumes use of the RHEL Linklight topology
 - name: Add Linux User
   hosts: all
   gather_facts: yes

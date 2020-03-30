@@ -1,0 +1,23 @@
+#NOTE: This Playbook assumes use of the RHEL Linklight topology
+- name: Add Linux User
+  hosts: all
+  gather_facts: yes
+  tasks:
+
+    - name: Print RHEL Node hostnames
+      setup:
+      register: facts_output
+
+    - name: Print facts_output
+      debug:
+        var: facts_output.ansible_facts.ansible_hostname
+
+    - name: Sudo whoami
+      shell: whoami
+      when: facts_output.ansible_facts.ansible_hostname is search("node")
+      become: yes
+      register: whoami_output
+
+    - name: Print whoami output
+      debug:
+        var: whoami_output
