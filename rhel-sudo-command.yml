@@ -7,7 +7,7 @@
     - name: Gather RHEL node facts
       setup:
       register: facts_output
-      ignore_errors: true
+      ignore_errors: yes
 
     - name: Print facts_output
       debug:
