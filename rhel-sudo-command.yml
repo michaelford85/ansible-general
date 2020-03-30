@@ -1,5 +1,5 @@
 #NOTE: This Playbook assumes use of the RHEL Linklight topology
-- name: Add Linux User
+- name: Run sudo Linux command
   hosts: all
   gather_facts: yes
   tasks:
@@ -12,7 +12,7 @@
       debug:
         var: facts_output.ansible_facts.ansible_hostname
 
-    - name: Sudo whoami
+    - name: sudo whoami
       shell: whoami
       when: facts_output.ansible_facts.ansible_hostname is search("node")
       become: yes
