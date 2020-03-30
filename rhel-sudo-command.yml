@@ -21,3 +21,4 @@
     - name: Print whoami output
       debug:
         var: whoami_output.stdout
+      when: facts_output.ansible_facts.ansible_hostname is search("node")
