@@ -4,7 +4,7 @@
   gather_facts: yes
   tasks:
 
-    - name: Print RHEL Node hostnames
+    - name: Gather RHEL node facts
       setup:
       when: facts_output.ansible_facts.ansible_hostname is search("node")
       register: facts_output
