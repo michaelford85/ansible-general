@@ -20,4 +20,4 @@
 
     - name: Print whoami output
       debug:
-        var: whoami_output
+        var: whoami_output.stdout
